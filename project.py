@@ -1,9 +1,10 @@
 # imports section
 import sys
 import random
+from os import system, name
 from art import text2art
 from tabulate import tabulate
-from os import system, name
+
 
 # Plates to be served to the King
 Spicy = {
@@ -14,18 +15,18 @@ Spicy = {
 Sweet = {
     "Raspberry Cake": random.randint(1, 4),
     "Pudding": random.randint(1, 4),
-    "Honey Biscuits": random.randint(1, 4),
+    "Honey Biscuits": random.randint(1, 4)
 }
 Savoury = {
     "Meatballs": random.randint(1, 4),
     "Sausage": random.randint(1, 4),
     "Steak": random.randint(1, 4),
 }
-game = True
+GAME = True
 
 # Main function
 def main():
-    while game:
+    while GAME:
         clear()
         input("Welcome to :")
         title_screen()
@@ -64,11 +65,11 @@ def main():
                 king.hunger += attitude_check(king.attitude, plate)
                 king.attitude = random.randint(1, 9)
 
-def clear(): 
-    if name == 'nt': 
-        x = system('cls') 
-    else: 
-        x = system('clear') 
+def clear():
+    if name == 'nt':
+        system('cls')
+    else:
+        system('clear')
 
 # Making a class to store the two attributes that will be used.
 class King:
